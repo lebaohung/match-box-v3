@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>小粉小游戏</title>
+        <link rel="stylesheet" href="cards.css">
+        <script src="cards.js"></script>
+    </head>
+
+    <body>
+        <div id="board">
+            <div class="top side-buttons" id="topId">
+            </div>
+            <div class="bottom side-buttons" id="bottomId">
+            </div>
+            <div class="left side-buttons" id="leftId">
+            </div>
+            <div class="right side-buttons" id="rightId">
+            </div>
+        </div>
+        <div style="color: #d9d7cb" id="timer">01:00</div>
+        <div><button id="startButton" onclick="startTimer()">Start</button></div>
+        <div id="message" style="font-size: 1em; color: #dcd9d9; margin: 5px;"></div>
+        <div style="display: inline-flex">
+        <div id="level" style="font-size: 1em; color: #dcd9d9; margin: 5px; margin-right: 0 !important;"></div>
+        <div id="score" style="font-size: 1em; color: #dcd9d9; margin: 5px;"></div>
+        </div>
+        <div id="score2" style="font-size: 1.5em; color: #dcd9d9; margin: 5px;"></div>
+
+        <p id="result" class="result"></p>
+
+    </body>
+
+
+</html>
