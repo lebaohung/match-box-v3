@@ -211,12 +211,12 @@ function nextLevel(centerIndex) {
 
 function shuffleCards(centerIndex) {
     if (centerIndex === data.pairFlow.length) return;
+    for (let i = 0; i < data.pairFlow[centerIndex].length; i++) {
+        charList.push(data.pairFlow[centerIndex][i]);
+    }
     for (let i = 0; i < data.pairFlow[centerIndex].length ; i++) {
         if (data.correctMap.hasOwnProperty(data.pairFlow[centerIndex][i])) {
             charList.push(...data.correctMap[data.pairFlow[centerIndex][i]]);
-        }
-        if (data.incorrectMap.hasOwnProperty(data.pairFlow[centerIndex][i])) {
-            charList.push(...data.incorrectMap[data.pairFlow[centerIndex][i]]);
         }
     }
     charList = [...new Set(charList)];
@@ -237,6 +237,29 @@ function startGame(centerIndex) {
 
 
     if (centerIndex < data.pairFlow.length) {
+
+        for (let r = 0; r < 4; r++) {
+            let row = [];
+            for (let c = 0; c < 5; c++) {
+                let character = charList.pop();
+                if (character !== null) {
+                    row.push(character); //JS
+
+                    let box = document.createElement("button");
+                    box.setAttribute("id", "button2");
+                    box.setAttribute("class", "button, clickable");
+                    box.textContent = character;
+                    box.setAttribute("disabled", true)
+
+                    box.addEventListener("click", selectComponent);
+                    document.getElementById("board").append(box);
+                }
+
+            }
+            board.push(row);
+        }
+        
+        
         for (let i = 0; i < data.pairFlow[centerIndex].length; i++) {
             let center = document.createElement("button");
             center.setAttribute("id", "center");
@@ -251,56 +274,7 @@ function startGame(centerIndex) {
             addListenerChangeColor(center)
         }
         let charLength = charList.length;
-        for (let j = 0; j < Math.floor(charLength / 4) ; j++) {
-            let top = document.createElement("button");
-            top.setAttribute("class", "clickable");
-            top.textContent = charList.pop();
-            if (centerIndex === 0) {
-                top.setAttribute("disabled", true)
-            }
-
-            top.addEventListener("click", selectComponent);
-            document.getElementById("topId").append(top);
-            addListenerChangeColor(top)
-
-            let left = document.createElement("button");
-            left.setAttribute("class", "clickable");
-            left.textContent = charList.pop();
-            if (centerIndex === 0) {
-                left.setAttribute("disabled", true)
-            }
-
-            left.addEventListener("click", selectComponent);
-            document.getElementById("leftId").append(left);
-            addListenerChangeColor(left)
-
-            let right = document.createElement("button");
-            right.setAttribute("class", "clickable");
-            right.textContent = charList.pop();
-            if (centerIndex === 0) {
-                right.setAttribute("disabled", true)
-            }
-
-            right.addEventListener("click", selectComponent);
-            document.getElementById("rightId").append(right);
-            addListenerChangeColor(right)
-        }
-        charLength = charList.length;
-
-        for (let i = 0; i < charLength; i++) {
-            let bottom = document.createElement("button");
-            bottom.setAttribute("class", "clickable");
-            bottom.textContent = charList.pop();
-            if (centerIndex === 0) {
-                bottom.setAttribute("disabled", true)
-            }
-
-            bottom.addEventListener("click", selectComponent);
-            document.getElementById("bottomId").append(bottom);
-            addListenerChangeColor(bottom)
-
-        }
-
+        for (let j = 0; j < Math.floor(charLength / 4) ; j++) 
     } else {
         remainingTime = 0;
     }

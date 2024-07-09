@@ -48,14 +48,23 @@ body {
     margin: 2.5px;
 }
 
-button {
-    width: 3em;
+button {width: 80px;
     height: 50px;
     font-size: 18px;
+    padding: 10px;
+    margin: 4px;
     border-radius: 7px;
     border: 1px solid #ccc;
     background-color: #e1b79f;
-    transition: transform 0.3s ease;
+    
+    
+    /*width: 3em;*/
+    /*height: 50px;*/
+    /*font-size: 18px;*/
+    /*border-radius: 7px;*/
+    /*border: 1px solid #ccc;*/
+    /*background-color: #e1b79f;*/
+    /*transition: transform 0.3s ease;*/
 }
 
 button:hover {
@@ -66,45 +75,9 @@ button:hover {
     background-color: #b35a27;
 }
 
-.side-buttons {
-    position: absolute;
-    display: flex;
-    gap: 10px;
-}
-
 .result {
     font-size: 20px;
     font-weight: bold;
     color: #b35a27;
 }
 
-.top {
-    top: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.bottom {
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.right {
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    flex-direction: column;
-}
-
-.left {
-    left: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    flex-direction: column;
-}
-
-#center {
-    z-index: 1;
-    margin-right: 10px;
-}
